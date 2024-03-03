@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component
 @Component
 class CalcUtil {
     fun circleCulvertCalculationSetter(entity: CulvertEntity): CulvertEntity {
-        entity.centralAngle = getCentralAngle(entity)
+        entity.centralAngle = getCircleCulvertCentralAngle(entity)
         entity.flowArea = getCircleFlowArea(entity)
         entity.wettedPerimeter = getCircleWettedPerimeter(entity)
         entity.waterSpeed = getCircleWaterSpeed(entity)
@@ -40,7 +40,7 @@ class CalcUtil {
         return entity
     }
 
-    private fun getCentralAngle(entity: CulvertEntity): Double {
+    private fun getCircleCulvertCentralAngle(entity: CulvertEntity): Double {
         val diameter = entity.structureDiameter!!
         val percent = entity.flowHeight
 
@@ -63,7 +63,7 @@ class CalcUtil {
         val diameter = entity.structureDiameter!!
         val percent = entity.flowHeight
 
-        val angle = getCentralAngle(entity)
+        val angle = getCircleCulvertCentralAngle(entity)
         val circularSegmentArea: Double = ((diameter / 2).pow(2.0) * (angle - sin(angle))) / 2
         val flowArea = if (percent < 50) {
             circularSegmentArea
@@ -91,7 +91,7 @@ class CalcUtil {
     private fun getCircleWettedPerimeter(entity: CulvertEntity): Double {
         val radius = entity.structureDiameter!! / 2
         val percent = entity.flowHeight
-        val angle = getCentralAngle(entity)
+        val angle = getCircleCulvertCentralAngle(entity)
 
         log.info("ActionLog.CalcUtil.getCircleWettedPerimeter -> {} , {}", radius, percent)
 
