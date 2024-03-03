@@ -1,20 +1,44 @@
 package com.calcpro.flowmaster.service.handlers
 
+import az.pashabank.ips.integration.logger.DPLogger
 import com.calcpro.flowmaster.dao.entity.StructureShape.BOX_CULVERT
+import com.calcpro.flowmaster.dao.repository.CulvertRepository
 import com.calcpro.flowmaster.dto.CulvertRequest
 import com.calcpro.flowmaster.dto.CulvertResponse
+import com.calcpro.flowmaster.mapper.CulvertMapper
 import com.calcpro.flowmaster.service.CulvertHandler
+import com.calcpro.flowmaster.util.CalcUtil
+import org.springframework.stereotype.Service
 
-class BoxCulvertCalculator: CulvertHandler {
+@Service
+class BoxCulvertCalculator(
+    private val culvertRepository: CulvertRepository,
+    private val culvertMapper: CulvertMapper,
+    private val calcUtil: CalcUtil
+) : CulvertHandler {
+
+    companion object {
+        private val log = DPLogger.getLogger(this::class.java)
+    }
+
     override fun structureShape() = BOX_CULVERT.type
 
     override fun culvertInit(culvertRequest: CulvertRequest): CulvertResponse {
-        println("BURDAYAM BOXXXXX")
-        return CulvertResponse(
-            flowRate = 1244.3,
-            requiredFlowRate = 54332.45,
-            result = "OK"
-        )
+        log.info("ActionLog.BoxCulvertCalculator.culvertInit: request received")
+
+        var entity = culvertMapper.culvertRequestToCulvertEntity(culvertRequest)
+
+        entity = calcUtil.culvertCalculationSetter(entity)
+
+        log.info("ActionLog.BoxCulvertCalculator.culvertInit: entity created")
+
+        log.debug("ActionLog.BoxCulvertCalculator.culvertInit: necessary fields calculated -> {}", entity)
+
+        val responseEntity = culvertRepository.save(entity)
+
+        log.debug("ActionLog.CircleCulvertCalculator.pipeFlowCalculator: entity saved -> {}", responseEntity)
+
+        return culvertMapper.culvertEntityToCulvertResponse(responseEntity)
     }
 
     override fun addPipe(culvertRequest: CulvertRequest): CulvertResponse {

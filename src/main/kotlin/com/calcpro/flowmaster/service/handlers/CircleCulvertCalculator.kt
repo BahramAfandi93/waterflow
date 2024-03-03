@@ -24,22 +24,21 @@ class CircleCulvertCalculator(
     override fun structureShape() = CIRCLE_CULVERT.type
 
     override fun culvertInit(culvertRequest: CulvertRequest): CulvertResponse {
-        log.info("ActionLog.CircleCulvertCalculator.pipeFlowCalculator: request received")
+        log.info("ActionLog.CircleCulvertCalculator.culvertInit: request received")
 
         var entity = culvertMapper.culvertRequestToCulvertEntity(culvertRequest)
 
         entity = calcUtil.culvertCalculationSetter(entity)
 
-        log.info("ActionLog.CircleCulvertCalculator.pipeFlowCalculator: entity created")
+        log.info("ActionLog.CircleCulvertCalculator.culvertInit: entity created")
 
-        log.debug("ActionLog.CircleCulvertCalculator.pipeFlowCalculator: necessary fields calculated -> {}", entity)
-
+        log.debug("ActionLog.CircleCulvertCalculator.culvertInit: necessary fields calculated -> {}", entity)
 
         val responseEntity = culvertRepository.save(entity)
-        log.debug("ActionLog.CircleCulvertCalculator.pipeFlowCalculator: entity saved -> {}", responseEntity)
+
+        log.debug("ActionLog.CircleCulvertCalculator.culvertInit: entity saved -> {}", responseEntity)
 
         return culvertMapper.culvertEntityToCulvertResponse(responseEntity)
-
     }
 
     override fun addPipe(culvertRequest: CulvertRequest): CulvertResponse {
