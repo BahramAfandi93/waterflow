@@ -46,4 +46,8 @@ class CulvertEntity(
     @ManyToOne
     @JoinColumn(name = "project_entity_id")
     val project: ProjectEntity? = null
-)
+) {
+    override fun toString(): String {
+        return "CulvertEntity(id=$id, location='$location', projectName='$projectName', chainage='$chainage', material='$material', flowHeight=$flowHeight, rainIntensity=$rainIntensity, calculationArea=$calculationArea, slope=$slope, shape=$shape, structureDiameter=$structureDiameter, structureWidth=$structureWidth, structureHeight=$structureHeight, centralAngle=$centralAngle, waterSpeed=$waterSpeed, wettedPerimeter=$wettedPerimeter, flowArea=$flowArea, hydraulicRadius=$hydraulicRadius, minAllowedSlope=$minAllowedSlope, roughness=$roughness, flowRate=$flowRate, requiredFlowRate=$requiredFlowRate, culvertPostDate=$culvertPostDate, result=$result, project=$project)"
+    }
+}

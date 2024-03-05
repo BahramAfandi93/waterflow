@@ -28,7 +28,7 @@ class CircleCulvertCalculator(
 
         var entity = culvertMapper.culvertRequestToCulvertEntity(culvertRequest)
 
-        entity = calcUtil.culvertCalculationSetter(entity)
+        entity = calcUtil.circleCulvertCalculationSetter(entity)
 
         log.info("ActionLog.CircleCulvertCalculator.culvertInit: entity created")
 

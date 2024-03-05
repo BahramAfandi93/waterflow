@@ -3,12 +3,10 @@ package com.calcpro.flowmaster.service
 import az.pashabank.ips.integration.logger.DPLogger
 import com.calcpro.flowmaster.dto.CulvertRequest
 import com.calcpro.flowmaster.dto.CulvertResponse
-import com.calcpro.flowmaster.mapper.CulvertMapper
 import org.springframework.stereotype.Service
 
 @Service
 class ReceiveCulvertService(
-    private val culvertMapper: CulvertMapper,
     private val culvertHandlerFactory: CulvertHandlerFactory,
 ) {
 

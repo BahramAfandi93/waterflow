@@ -1,3 +1,14 @@
 server:
   port: 1210
 
+logging:
+  level:
+    root: INFO
+    az.pashabank: DEBUG
+#                 TRACE
+#                 DEBUG
+#                 INFO
+#                 WARN
+#                 ERROR
+#                 FATAL
+
