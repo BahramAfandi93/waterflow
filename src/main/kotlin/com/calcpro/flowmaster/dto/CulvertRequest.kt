@@ -13,7 +13,7 @@ data class CulvertRequest(
     var shape: StructureShape,
     var structureDiameter: Double? = null,
     var structureHeight: Double? = null,
-    var structureWith: Double? = null
+    var structureWidth: Double? = null
 )
 
 data class CulvertResponse(

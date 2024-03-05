@@ -20,9 +20,9 @@ class CulvertController(
     }
 
     @PostMapping("/save")
-    fun calculateCircleCulvert(@RequestBody culvertRequest: CulvertRequest): CulvertResponse? {
+    fun createCulvert(@RequestBody culvertRequest: CulvertRequest): CulvertResponse? {
         log.debug(
-            "ActionLog.CulvertController.calculateCircleCulvert:  request sent to controller -> {}", culvertRequest
+            "ActionLog.CulvertController.createCulvert:  request sent to controller -> {}", culvertRequest
         )
         return receiveCulvertService.receiveCulvert(culvertRequest)
     }

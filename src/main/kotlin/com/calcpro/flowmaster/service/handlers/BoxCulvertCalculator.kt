@@ -24,19 +24,13 @@ class BoxCulvertCalculator(
     override fun structureShape() = BOX_CULVERT.type
 
     override fun culvertInit(culvertRequest: CulvertRequest): CulvertResponse {
+
         log.info("ActionLog.BoxCulvertCalculator.culvertInit: request received")
 
         var entity = culvertMapper.culvertRequestToCulvertEntity(culvertRequest)
-
-        entity = calcUtil.culvertCalculationSetter(entity)
-
-        log.info("ActionLog.BoxCulvertCalculator.culvertInit: entity created")
-
-        log.debug("ActionLog.BoxCulvertCalculator.culvertInit: necessary fields calculated -> {}", entity)
+        entity = calcUtil.boxCulvertCalculationSetter(entity)
 
         val responseEntity = culvertRepository.save(entity)
-
-        log.debug("ActionLog.CircleCulvertCalculator.pipeFlowCalculator: entity saved -> {}", responseEntity)
 
         return culvertMapper.culvertEntityToCulvertResponse(responseEntity)
     }
