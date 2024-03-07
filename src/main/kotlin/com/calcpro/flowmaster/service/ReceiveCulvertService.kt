@@ -1,6 +1,6 @@
 package com.calcpro.flowmaster.service
 
-import az.pashabank.ips.integration.logger.DPLogger
+import com.calcpro.flowmaster.logger.DPLogger
 import com.calcpro.flowmaster.dto.CulvertRequest
 import com.calcpro.flowmaster.dto.CulvertResponse
 import org.springframework.stereotype.Service

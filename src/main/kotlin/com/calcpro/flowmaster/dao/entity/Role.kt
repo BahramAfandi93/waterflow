@@ -1,4 +1,4 @@
-package com.construe.waterflowcalc.dao.entity
+package com.calcpro.flowmaster.dao.entity
 
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType.IDENTITY

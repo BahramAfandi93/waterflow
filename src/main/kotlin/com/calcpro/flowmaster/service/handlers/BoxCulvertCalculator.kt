@@ -1,6 +1,6 @@
 package com.calcpro.flowmaster.service.handlers
 
-import az.pashabank.ips.integration.logger.DPLogger
+import com.calcpro.flowmaster.logger.DPLogger
 import com.calcpro.flowmaster.dao.entity.StructureShape.BOX_CULVERT
 import com.calcpro.flowmaster.dao.repository.CulvertRepository
 import com.calcpro.flowmaster.dto.CulvertRequest

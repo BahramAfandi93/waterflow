@@ -3,8 +3,6 @@ package com.calcpro.flowmaster.mapper
 import com.calcpro.flowmaster.dao.entity.CulvertEntity
 import com.calcpro.flowmaster.dto.CulvertRequest
 import com.calcpro.flowmaster.dto.CulvertResponse
-import com.calcpro.flowmaster.service.handlers.CircleCulvertCalculator
-import com.calcpro.flowmaster.service.handlers.CircleCulvertCalculator.Companion
 import org.apache.kafka.common.requests.DeleteAclsResponse.log
 import org.springframework.stereotype.Component
 
