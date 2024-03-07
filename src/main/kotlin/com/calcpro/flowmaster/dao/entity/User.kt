@@ -1,4 +1,4 @@
-package com.construe.waterflowcalc.dao.entity
+package com.calcpro.flowmaster.dao.entity
 
 import java.time.LocalDate
 import java.time.LocalDateTime

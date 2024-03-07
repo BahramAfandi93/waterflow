@@ -13,7 +13,8 @@ import org.springframework.stereotype.Component
 @Component
 class CalcUtil {
     fun circleCulvertCalculationSetter(entity: CulvertEntity): CulvertEntity {
-        entity.centralAngle = getCentralAngle(entity)
+        log.info("ActionLog.CalcUtil.circleCulvertCalculationSetter: Entity received -> {}", entity.toString())
+        entity.centralAngle = getCircleCulvertCentralAngle(entity)
         entity.flowArea = getCircleFlowArea(entity)
         entity.wettedPerimeter = getCircleWettedPerimeter(entity)
         entity.waterSpeed = getCircleWaterSpeed(entity)
@@ -27,7 +28,7 @@ class CalcUtil {
     }
 
     fun boxCulvertCalculationSetter(entity: CulvertEntity): CulvertEntity {
-        log.info("boxCulvertRequest Entity accepted -> {}", entity.toString())
+        log.info("ActionLog.CalcUtil.boxCulvertCalculationSetter: Entity received -> {}", entity.toString())
         entity.flowArea = getBoxFlowArea(entity)
         entity.wettedPerimeter = getBoxWettedPerimeter(entity)
         entity.waterSpeed = getBoxWaterSpeed(entity)
@@ -40,7 +41,7 @@ class CalcUtil {
         return entity
     }
 
-    private fun getCentralAngle(entity: CulvertEntity): Double {
+    private fun getCircleCulvertCentralAngle(entity: CulvertEntity): Double {
         val diameter = entity.structureDiameter!!
         val percent = entity.flowHeight
 
@@ -62,9 +63,15 @@ class CalcUtil {
     private fun getCircleFlowArea(entity: CulvertEntity): Double {
         val diameter = entity.structureDiameter!!
         val percent = entity.flowHeight
+        val centralAngle = getCircleCulvertCentralAngle(entity)
 
-        val angle = getCentralAngle(entity)
-        val circularSegmentArea: Double = ((diameter / 2).pow(2.0) * (angle - sin(angle))) / 2
+        val circularSegmentArea: Double = ((diameter / 2).pow(2.0) * (centralAngle - sin(centralAngle))) / 2
+
+        log.info(
+            "ActionLog.CircleCulvertCalculator.getCentralAngle -> diameter = {}, percent = {}, centralAngle = {}",
+            diameter, percent, centralAngle
+        )
+
         val flowArea = if (percent < 50) {
             circularSegmentArea
         } else {
@@ -80,9 +87,7 @@ class CalcUtil {
 
         log.info(
             "ActionLog.CalcUtil.getBoxFlowArea: width = {}, height = {}, boxFlowArea = {}",
-            width,
-            height,
-            boxFlowArea
+            width, height, boxFlowArea
         )
 
         return "%.2f".format(boxFlowArea).toDouble()
@@ -91,14 +96,17 @@ class CalcUtil {
     private fun getCircleWettedPerimeter(entity: CulvertEntity): Double {
         val radius = entity.structureDiameter!! / 2
         val percent = entity.flowHeight
-        val angle = getCentralAngle(entity)
+        val centralAngle = getCircleCulvertCentralAngle(entity)
 
-        log.info("ActionLog.CalcUtil.getCircleWettedPerimeter -> {} , {}", radius, percent)
+        log.info(
+            "ActionLog.CalcUtil.getCircleWettedPerimeter -> radius = {}, percent = {}, centralAngle = {}",
+            radius, percent, centralAngle
+        )
 
         val wettedPerimeter = if (percent < 50) {
-            radius * angle
+            radius * centralAngle
         } else {
-            2 * Math.PI * radius - radius * angle
+            2 * Math.PI * radius - radius * centralAngle
         }
 
         return "%.2f".format(wettedPerimeter).toDouble()
@@ -107,16 +115,16 @@ class CalcUtil {
     private fun getBoxWettedPerimeter(entity: CulvertEntity): Double {
         val width = entity.structureWidth!!
         val height = entity.structureHeight!!
-        val boxWettedPerimeter = 2 * height + width
 
-        log.info("Getting boxWettedPerimeter: -> {}", boxWettedPerimeter)
+        log.info("ActionLog.CalcUtil.getBoxWettedPerimeter: width = {}, height = {}", width, height)
+
+        val boxWettedPerimeter = 2 * height + width
 
         return "%.2f".format(boxWettedPerimeter).toDouble()
     }
 
     private fun getCircleHydraulicRadius(entity: CulvertEntity): Double {
 
-        log.info("Getting circleCulvert hydraulic radius: Start")
 
         val circleCulvertHydraulicRadius = getCircleFlowArea(entity) / getCircleWettedPerimeter(entity)
 

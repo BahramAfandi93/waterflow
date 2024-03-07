@@ -1,6 +1,6 @@
 package com.calcpro.flowmaster.service.handlers
 
-import az.pashabank.ips.integration.logger.DPLogger
+import com.calcpro.flowmaster.logger.DPLogger
 import com.calcpro.flowmaster.dao.entity.StructureShape.CIRCLE_CULVERT
 import com.calcpro.flowmaster.dao.repository.CulvertRepository
 import com.calcpro.flowmaster.dto.CulvertRequest
@@ -24,19 +24,14 @@ class CircleCulvertCalculator(
     override fun structureShape() = CIRCLE_CULVERT.type
 
     override fun culvertInit(culvertRequest: CulvertRequest): CulvertResponse {
+
         log.info("ActionLog.CircleCulvertCalculator.culvertInit: request received")
 
         var entity = culvertMapper.culvertRequestToCulvertEntity(culvertRequest)
 
         entity = calcUtil.circleCulvertCalculationSetter(entity)
 
-        log.info("ActionLog.CircleCulvertCalculator.culvertInit: entity created")
-
-        log.debug("ActionLog.CircleCulvertCalculator.culvertInit: necessary fields calculated -> {}", entity)
-
         val responseEntity = culvertRepository.save(entity)
-
-        log.debug("ActionLog.CircleCulvertCalculator.culvertInit: entity saved -> {}", responseEntity)
 
         return culvertMapper.culvertEntityToCulvertResponse(responseEntity)
     }

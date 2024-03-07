@@ -1,4 +1,4 @@
-package az.pashabank.ips.integration.logger
+package com.calcpro.flowmaster.logger
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory

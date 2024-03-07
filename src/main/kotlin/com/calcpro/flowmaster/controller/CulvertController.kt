@@ -1,6 +1,6 @@
 package com.calcpro.flowmaster.controller
 
-import az.pashabank.ips.integration.logger.DPLogger
+import com.calcpro.flowmaster.logger.DPLogger
 import com.calcpro.flowmaster.dto.CulvertRequest
 import com.calcpro.flowmaster.dto.CulvertResponse
 import com.calcpro.flowmaster.service.ReceiveCulvertService
