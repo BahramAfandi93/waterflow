@@ -9,7 +9,3 @@ class FlowMasterApplication
 fun main(args: Array<String>) {
     runApplication<FlowMasterApplication>(*args)
 }
-
-private fun isIsomorphic(s: String, t: String): Boolean {
-    TODO()
-}

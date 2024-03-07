@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DatabaseMigrationSettings" isCreateRollback="true" lastSelectedDirectory="db/changelog/#date(&quot;yyyy&quot;)/#date(&quot;MM&quot;)" liquibaseFileType="YAML">
+    <database-infos>
+      <database-info>
+        <dbms-id>mysql</dbms-id>
+      </database-info>
+      <database-info>
+        <option name="enabled" value="true" />
+        <dbms-id>postgres</dbms-id>
+      </database-info>
+    </database-infos>
+    <liquibase-changeset-templates>
+      <liquibase-changeset-templates objectQuotingStrategy="addColumn" />
+      <liquibase-changeset-templates objectQuotingStrategy="addForeignKeyConstraint" />
+      <liquibase-changeset-templates objectQuotingStrategy="addAutoIncrement" />
+      <liquibase-changeset-templates objectQuotingStrategy="addNotNullConstraint" />
+      <liquibase-changeset-templates objectQuotingStrategy="addPrimaryKey" />
+      <liquibase-changeset-templates objectQuotingStrategy="createTable" />
+      <liquibase-changeset-templates objectQuotingStrategy="delete" />
+      <liquibase-changeset-templates objectQuotingStrategy="dropColumn" />
+    </liquibase-changeset-templates>
+  </component>
+  <component name="JpaPluginProjectSettings">
+    <option name="lastSelectedLanguage" value="Kotlin" />
+  </component>
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit name="Default" defaultIncludeChangeLogFile="src/main/resources/db/changelog/2024/01/03-01-changelog.yaml" defaultSearchScope="Selected Entities">
+        <packages>
+          <package value="com.calcpro.flowmaster" />
+        </packages>
+      </persistence-unit>
+    </persistence-units>
+  </component>
+</project>

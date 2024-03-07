@@ -1,6 +1,6 @@
 package com.calcpro.flowmaster.mapper
 
-import com.calcpro.flowmaster.dao.entity.CulvertEntity
+import com.calcpro.flowmaster.dao.entity.Culvert
 import com.calcpro.flowmaster.dto.CulvertRequest
 import com.calcpro.flowmaster.dto.CulvertResponse
 import org.apache.kafka.common.requests.DeleteAclsResponse.log
@@ -9,27 +9,25 @@ import org.springframework.stereotype.Component
 @Component
 class CulvertMapper {
 
-    fun culvertRequestToCulvertEntity(payload: CulvertRequest): CulvertEntity {
+    fun culvertRequestToCulvertEntity(payload: CulvertRequest): Culvert {
 
         log.info("ActionLog.CulvertMapper.culvertRequestToCulvertEntity -> {}", payload)
 
-        return CulvertEntity(
-            projectName = payload.project.projectName,
-            location = payload.project.location,
+        return Culvert(
             chainage = payload.chainage,
             material = payload.material,
+            flowHeight = payload.flowHeight,
+            rainIntensity = payload.rainIntensity,
+            calculationArea = payload.calculationArea,
+            slope = payload.slope,
+            shape = payload.shape,
             structureDiameter = payload.structureDiameter,
             structureWidth = payload.structureWidth,
-            structureHeight = payload.structureHeight,
-            shape = payload.shape,
-            slope = payload.slope,
-            calculationArea = payload.calculationArea,
-            flowHeight = payload.flowHeight,
-            rainIntensity = payload.rainIntensity
+            structureHeight = payload.structureHeight
         )
     }
 
-    fun culvertEntityToCulvertResponse(entity: CulvertEntity): CulvertResponse {
+    fun culvertEntityToCulvertResponse(entity: Culvert): CulvertResponse {
         return CulvertResponse(
             centralAngle = entity.centralAngle,
             flowArea = entity.flowArea,
