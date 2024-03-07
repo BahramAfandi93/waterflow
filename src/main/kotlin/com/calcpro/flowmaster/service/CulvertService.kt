@@ -6,7 +6,7 @@ import com.calcpro.flowmaster.dto.CulvertResponse
 import org.springframework.stereotype.Service
 
 @Service
-class ReceiveCulvertService(
+class CulvertService(
     private val culvertHandlerFactory: CulvertHandlerFactory,
 ) {
 
@@ -18,11 +18,11 @@ class ReceiveCulvertService(
 
         val handler = culvertHandlerFactory.getHandler(culvertRequest)
 
-        log.debug("ActionLog.ReceiveCulvertService.receiveCulvert: handler chosen -> {}", handler)
+        log.debug("ActionLog.CulvertService.receiveCulvert: handler chosen -> {}", handler)
 
         val response = handler?.culvertInit(culvertRequest)
 
-        log.debug("ActionLog.ReceiveCulvertService.receiveCulvert: culvert response received -> {}", response)
+        log.debug("ActionLog.CulvertService.receiveCulvert: culvert response received -> {}", response)
 
         return response
     }
