@@ -16,7 +16,7 @@ class ReceiveCulvertService(
 
     fun receiveCulvert(culvertRequest: CulvertRequest): CulvertResponse? {
 
-        val handler = culvertHandlerFactory.getHandler(culvertRequest.shape.type)
+        val handler = culvertHandlerFactory.getHandler(culvertRequest)
 
         log.debug("ActionLog.ReceiveCulvertService.receiveCulvert: handler chosen -> {}", handler)
 
