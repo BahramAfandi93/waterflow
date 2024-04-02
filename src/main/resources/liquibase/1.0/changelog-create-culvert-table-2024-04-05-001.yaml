@@ -1,0 +1,95 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1712253634721-2
+      author: BAHRAM AFANDI
+      changes:
+        - createTable:
+            tableName: culvert
+            remarks: Table to store culverts
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_culvert
+              - column:
+                  name: project_name
+                  type: VARCHAR(255)
+              - column:
+                  name: project_location
+                  type: VARCHAR(255)
+              - column:
+                  name: chainage
+                  type: VARCHAR(255)
+              - column:
+                  name: material
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: flow_height
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: rain_intensity
+                  type: INT
+              - column:
+                  name: calculation_area
+                  type: DOUBLE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: slope
+                  type: DOUBLE
+              - column:
+                  name: shape
+                  type: VARCHAR(255)
+              - column:
+                  name: structure_diameter
+                  type: DOUBLE
+              - column:
+                  name: structure_width
+                  type: DOUBLE
+              - column:
+                  name: structure_height
+                  type: DOUBLE
+              - column:
+                  name: central_angle
+                  type: DOUBLE
+              - column:
+                  name: water_speed
+                  type: DOUBLE
+              - column:
+                  name: wetted_perimeter
+                  type: DOUBLE
+              - column:
+                  name: flow_area
+                  type: DOUBLE
+              - column:
+                  name: hydraulic_radius
+                  type: DOUBLE
+              - column:
+                  name: min_allowed_slope
+                  type: DOUBLE
+              - column:
+                  name: roughness
+                  type: DOUBLE
+              - column:
+                  name: flow_rate
+                  type: DOUBLE
+              - column:
+                  name: required_flow_rate
+                  type: DOUBLE
+              - column:
+                  name: culvert_post_date
+                  type: DATETIME
+              - column:
+                  name: result
+                  type: VARCHAR(255)
+              - column:
+                  name: project_id
+                  type: BIGINT

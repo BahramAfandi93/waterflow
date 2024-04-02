@@ -57,9 +57,10 @@ dependencies {
 
     // data
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-//    implementation("org.liquibase:liquibase-core:4.24.0")
     implementation ("org.hibernate:hibernate-core:5.6.8.Final")
-    runtimeOnly ("org.postgresql:postgresql:42.4.3")
+    runtimeOnly ("org.postgresql:postgresql")
+
+    implementation("org.liquibase:liquibase-core")
 
     // mapper
     implementation ("org.mapstruct:mapstruct:1.5.5.Final")

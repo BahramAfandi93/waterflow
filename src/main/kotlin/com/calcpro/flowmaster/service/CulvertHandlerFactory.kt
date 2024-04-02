@@ -1,5 +1,6 @@
 package com.calcpro.flowmaster.service
 
+import com.calcpro.flowmaster.dto.CulvertRequest
 import org.springframework.stereotype.Component
 
 @Component
@@ -8,7 +9,8 @@ class CulvertHandlerFactory(culvertHandlers: List<CulvertHandler>) {
         it.structureShape()
     }
 
-    fun getHandler(structureShape: String): CulvertHandler? {
+    fun getHandler(culvertRequest: CulvertRequest): CulvertHandler? {
+        val structureShape = culvertRequest.shape.type
         return culvertHandlerMap[structureShape]
     }
 }
