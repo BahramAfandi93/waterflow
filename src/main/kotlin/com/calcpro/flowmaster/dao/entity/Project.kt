@@ -1,5 +1,6 @@
 package com.calcpro.flowmaster.dao.entity
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import javax.persistence.CascadeType
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -23,6 +24,7 @@ class Project(
     val culverts: List<Culvert>? = null,
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "customer_id")
-    val customer: Customer? = null
+    var customer: Customer? = null
 )

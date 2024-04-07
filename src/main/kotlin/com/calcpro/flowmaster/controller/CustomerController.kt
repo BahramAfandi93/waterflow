@@ -21,7 +21,7 @@ class CustomerController(
     }
 
     @PostMapping("/add-new-customer")
-    fun saveNewCustomer(@RequestBody customerRequest: CustomerRequestDto) = customerService.saveNewCustomer(customerRequest)
+    fun saveNewCustomer(@RequestBody customerRequest: CustomerRequestDto) = customerService.addNewCustomer(customerRequest)
 
     @GetMapping("/get-customer/id/{id}")
     fun getCustomerById(@PathVariable id: Long) = customerService.getCustomerById(id)
