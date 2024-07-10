@@ -3,7 +3,7 @@ package com.calcpro.flowmaster.dto
 import com.calcpro.flowmaster.dao.entity.Role
 import java.time.LocalDate
 
-data class UserRequestDto(
+data class EngineerRequestDto(
     val name: String,
     val lastname: String,
     val email: String,
@@ -15,7 +15,7 @@ data class UserRequestDto(
     val role: Role? = null,
 )
 
-data class UserResponse(
+data class EngineerResponse(
     val name: String,
     val lastname: String,
     val email: String,

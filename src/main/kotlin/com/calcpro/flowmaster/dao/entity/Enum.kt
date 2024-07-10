@@ -35,6 +35,6 @@ enum class Result {
 }
 
 enum class Role {
-    USER,
+    ENGINEER,
     ADMIN,
 }

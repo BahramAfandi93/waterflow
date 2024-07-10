@@ -1,8 +1,8 @@
 package com.calcpro.flowmaster.controller
 
-import com.calcpro.flowmaster.dto.UserRequestDto
+import com.calcpro.flowmaster.dto.EngineerRequestDto
 import com.calcpro.flowmaster.logger.DPLogger
-import com.calcpro.flowmaster.service.UserService
+import com.calcpro.flowmaster.service.EngineerService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/user")
-class UserController(
-    private val userService: UserService
+@RequestMapping("/engineer")
+class EngineerController(
+    private val engineerService: EngineerService
 ) {
 
     companion object {
         private val log = DPLogger.getLogger(this::class.java)
     }
 
-    @PostMapping("/add-new-user")
-    fun saveNewUser(@RequestBody userRequest: UserRequestDto) = userService.addNewUser(userRequest)
+    @PostMapping("/add-new-engineer")
+    fun saveNewEngineer(@RequestBody engineerRequest: EngineerRequestDto) = engineerService.addNewEngineer(engineerRequest)
 
-    @GetMapping("/get-user/id/{id}")
-    fun getUserById(@PathVariable id: Long) = userService.getUserById(id)
+    @GetMapping("/get-engineer/id/{id}")
+    fun getEngineerById(@PathVariable id: Long) = engineerService.getEngineerById(id)
 }
