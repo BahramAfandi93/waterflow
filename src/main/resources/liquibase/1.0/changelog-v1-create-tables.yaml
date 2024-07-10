@@ -112,8 +112,8 @@ databaseChangeLog:
                   name: project_location
                   type: VARCHAR(255)
         - createTable:
-            tableName: app_user
-            remarks: Table to store app_user
+            tableName: engineer
+            remarks: Table to store engineer
             columns:
               - column:
                   name: id
@@ -122,7 +122,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     primaryKey: true
-                    primaryKeyName: pk_app_user
+                    primaryKeyName: pk_engineer
               - column:
                   name: name
                   type: VARCHAR(255)
@@ -151,7 +151,7 @@ databaseChangeLog:
                   name: role
                   type: SMALLINT
               - column:
-                  name: user_registration_date
+                  name: engineer_registration_date
                   type: DATETIME
               - column:
                   constraints:
