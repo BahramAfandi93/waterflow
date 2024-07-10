@@ -1,15 +1,15 @@
 package com.calcpro.flowmaster.dto
 
-import com.calcpro.flowmaster.dao.entity.Customer
+import com.calcpro.flowmaster.dao.entity.User
 
 data class ProjectRequest(
     val projectName: String,
     val projectLocation: String,
-    val customerId: Long? = null
+    val userId: Long? = null
 )
 
 class ProjectResponse(
     val projectName: String,
     val projectLocation: String,
-    val customer: Customer
+    val user: User
 )

@@ -1,7 +1,6 @@
 package com.calcpro.flowmaster.dto
 
 import com.calcpro.flowmaster.dao.entity.StructureShape
-import org.apache.kafka.common.message.DescribeUserScramCredentialsRequestData.UserName
 
 data class CulvertRequest(
     var chainage: String,
@@ -13,7 +12,8 @@ data class CulvertRequest(
     var shape: StructureShape,
     var structureDiameter: Double? = null,
     var structureHeight: Double? = null,
-    var structureWidth: Double? = null
+    var structureWidth: Double? = null,
+    var projectId: Long? = null
 )
 
 data class CulvertResponse(
