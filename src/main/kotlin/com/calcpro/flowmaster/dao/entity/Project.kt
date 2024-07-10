@@ -25,6 +25,6 @@ class Project(
 
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name = "customer_id")
-    var customer: Customer? = null
+    @JoinColumn(name = "user_id")
+    var user: User? = null
 )

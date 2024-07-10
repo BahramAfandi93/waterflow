@@ -44,5 +44,5 @@ class Culvert(
 
     @ManyToOne
     @JoinColumn(name = "project_id")
-    val project: Project? = null,
+    var project: Project? = null,
 )

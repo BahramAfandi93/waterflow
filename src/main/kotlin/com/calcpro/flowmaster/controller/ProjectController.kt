@@ -23,9 +23,9 @@ class ProjectController(
 
     @PostMapping("/add-new-project")
     fun saveNewProject(
-        @RequestParam customerId: Long,
+        @RequestParam userId: Long,
         @RequestBody projectRequest: ProjectRequest
-    ) = projectService.addNewProject(customerId, projectRequest)
+    ) = projectService.addNewProject(userId, projectRequest)
 
     @GetMapping("/get-project/id/{id}")
     fun getProjectById(@PathVariable id: Long) = projectService.getProjectById(id)
