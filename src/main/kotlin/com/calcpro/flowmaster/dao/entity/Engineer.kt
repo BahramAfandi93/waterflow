@@ -31,9 +31,9 @@ class Engineer(
     val projects: List<Project>? = null,
 
     @CreationTimestamp
-    var engineerRegistrationDate: LocalDateTime? = null,
-    var isEnabled: Boolean = false,
-    var credentialsNonExpired: Boolean = false,
-    var isAccountNonLocked: Boolean = false,
-    var isAccountNonExpired: Boolean = false,
+    var createdAt: LocalDateTime? = null,
+//    var isEnabled: Boolean = false,
+//    var credentialsNonExpired: Boolean = false,
+//    var isAccountNonLocked: Boolean = false,
+//    var isAccountNonExpired: Boolean = false,
 )
