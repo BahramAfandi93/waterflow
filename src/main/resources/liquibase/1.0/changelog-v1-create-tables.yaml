@@ -149,27 +149,27 @@ databaseChangeLog:
                   type: VARCHAR(255)
               - column:
                   name: role
-                  type: SMALLINT
+                  type: VARCHAR(255)
               - column:
-                  name: engineer_registration_date
+                  name: created_at
                   type: DATETIME
-              - column:
-                  constraints:
-                    nullable: false
-                  name: is_enabled
-                  type: BOOLEAN
-              - column:
-                  constraints:
-                    nullable: false
-                  name: credentials_non_expired
-                  type: BOOLEAN
-              - column:
-                  constraints:
-                    nullable: false
-                  name: is_account_non_locked
-                  type: BOOLEAN
-              - column:
-                  constraints:
-                    nullable: false
-                  name: is_account_non_expired
-                  type: BOOLEAN
+#              - column:
+#                  constraints:
+#                    nullable: false
+#                  name: is_enabled
+#                  type: BOOLEAN
+#              - column:
+#                  constraints:
+#                    nullable: false
+#                  name: credentials_non_expired
+#                  type: BOOLEAN
+#              - column:
+#                  constraints:
+#                    nullable: false
+#                  name: is_account_non_locked
+#                  type: BOOLEAN
+#              - column:
+#                  constraints:
+#                    nullable: false
+#                  name: is_account_non_expired
+#                  type: BOOLEAN
