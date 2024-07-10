@@ -1,7 +1,7 @@
 package com.calcpro.flowmaster.mapper
 
-import com.calcpro.flowmaster.dao.entity.User
 import com.calcpro.flowmaster.dao.entity.Role.USER
+import com.calcpro.flowmaster.dao.entity.User
 import com.calcpro.flowmaster.dto.UserRequestDto
 import com.calcpro.flowmaster.dto.UserResponse
 import org.springframework.stereotype.Component
@@ -32,7 +32,7 @@ class UserMapper {
         role = userRequestDto.role ?: USER
     )
 
-    fun userToUserResponse(user: User ) = UserResponse(
+    fun userToUserResponse(user: User) = UserResponse(
         name = user.name,
         lastname = user.lastname,
         email = user.email,

@@ -9,7 +9,7 @@ class ProjectMapper {
     fun projectToProjectRequest(project: Project) = ProjectRequest(
         projectName = project.projectName,
         projectLocation = project.projectLocation,
-        customerId = project.customer?.id
+        userId = project.user?.id
     )
 
     fun projectRequestToProject(projectRequest: ProjectRequest) = Project(
