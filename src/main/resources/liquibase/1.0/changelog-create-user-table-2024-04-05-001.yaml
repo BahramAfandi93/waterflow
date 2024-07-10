@@ -4,8 +4,8 @@ databaseChangeLog:
       author: BAHRAM AFANDI
       changes:
         - createTable:
-            tableName: customer
-            remarks: Table to store customers
+            tableName: user
+            remarks: Table to store users
             columns:
               - column:
                   name: id
@@ -14,7 +14,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     primaryKey: true
-                    primaryKeyName: pk_customer
+                    primaryKeyName: pk_user
               - column:
                   name: name
                   type: VARCHAR(255)
@@ -43,7 +43,7 @@ databaseChangeLog:
                   name: role
                   type: SMALLINT
               - column:
-                  name: customer_registration_date
+                  name: user_registration_date
                   type: DATETIME
               - column:
                   constraints:

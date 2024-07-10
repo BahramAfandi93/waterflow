@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface CulvertRepository: JpaRepository<Culvert, Long> {
+interface CulvertRepository : JpaRepository<Culvert, Long> {
 }

@@ -1,10 +1,10 @@
 package com.calcpro.flowmaster.logger
 
+import java.util.Arrays
+import java.util.EnumSet
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.web.util.HtmlUtils
-import java.util.Arrays
-import java.util.EnumSet
 
 class DPLogger private constructor(private val logger: Logger) {
 
