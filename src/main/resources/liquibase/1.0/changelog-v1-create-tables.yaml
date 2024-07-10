@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 1712253634721-2
+      id: Create table to store data about culverts
       author: BAHRAM AFANDI
       changes:
         - createTable:
@@ -93,3 +93,83 @@ databaseChangeLog:
               - column:
                   name: project_id
                   type: BIGINT
+        - createTable:
+            tableName: project
+            remarks: Table to store projects
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_project
+              - column:
+                  name: project_name
+                  type: VARCHAR(255)
+              - column:
+                  name: project_location
+                  type: VARCHAR(255)
+        - createTable:
+            tableName: app_user
+            remarks: Table to store app_user
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_app_user
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: lastname
+                  type: VARCHAR(255)
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  name: birthday
+                  type: DATE
+              - column:
+                  name: position
+                  type: VARCHAR(255)
+              - column:
+                  name: company
+                  type: VARCHAR(255)
+              - column:
+                  name: phone
+                  type: VARCHAR(255)
+              - column:
+                  name: role
+                  type: SMALLINT
+              - column:
+                  name: user_registration_date
+                  type: DATETIME
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_enabled
+                  type: BOOLEAN
+              - column:
+                  constraints:
+                    nullable: false
+                  name: credentials_non_expired
+                  type: BOOLEAN
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_account_non_locked
+                  type: BOOLEAN
+              - column:
+                  constraints:
+                    nullable: false
+                  name: is_account_non_expired
+                  type: BOOLEAN

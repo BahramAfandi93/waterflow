@@ -12,8 +12,8 @@ import javax.persistence.Table
 import org.hibernate.annotations.CreationTimestamp
 
 @Entity
-@Table(name = "user")
-class User(
+@Table(name = "engineer")
+class Engineer(
     @Id
     @GeneratedValue(strategy = IDENTITY)
     var id: Long? = null,
@@ -27,11 +27,11 @@ class User(
     var phone: String? = null,
     var role: Role? = null,
 
-    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL])
+    @OneToMany(mappedBy = "engineer", cascade = [CascadeType.ALL])
     val projects: List<Project>? = null,
 
     @CreationTimestamp
-    var userRegistrationDate: LocalDateTime? = null,
+    var engineerRegistrationDate: LocalDateTime? = null,
     var isEnabled: Boolean = false,
     var credentialsNonExpired: Boolean = false,
     var isAccountNonLocked: Boolean = false,
