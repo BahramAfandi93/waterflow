@@ -1,6 +1,6 @@
 package com.calcpro.flowmaster.controller
 
-import com.calcpro.flowmaster.dao.repository.CulvertRepository
+import com.calcpro.flowmaster.dao.repository.StructureRepository
 import com.calcpro.flowmaster.dao.repository.ProjectRepository
 import com.calcpro.flowmaster.logger.DPLogger
 import com.calcpro.flowmaster.dto.CulvertRequest
@@ -19,7 +19,7 @@ class CulvertController(
     private val projectRepository: ProjectRepository,
     private val culvertMapper: CulvertMapper,
     private val receiveCulvertService: CulvertService,
-    private val culvertRepository: CulvertRepository
+    private val structureRepository: StructureRepository
 ) {
 
     companion object {

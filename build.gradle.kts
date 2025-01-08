@@ -65,6 +65,13 @@ dependencies {
     // mapper
     implementation ("org.mapstruct:mapstruct:1.5.5.Final")
     kapt ("org.mapstruct:mapstruct-processor:1.5.5.Final")
+//
+//    //mail
+//    implementation ("org.springframework.boot:spring-boot-starter-mail")
+
+//    // security
+//    implementation ("org.springframework.boot:spring-boot-starter-security")
+//    testImplementation ("org.springframework.security:spring-security-test")
 }
 
 tasks.withType<KotlinCompile> {

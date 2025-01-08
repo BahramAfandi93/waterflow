@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create table to store data about projects
+      author: BAHRAM AFANDI
+      changes:
+        - createTable:
+            tableName: project
+            remarks: Table to store projects
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: project_name
+                  type: VARCHAR(255)
+              - column:
+                  name: project_location
+                  type: VARCHAR(255)
+              - column:
+                  name: app_user_id
+                  type: bigint
+                  remarks: related application user id for projects
+                  constraints:
+                    foreignKeyName: fk_app_user_id
+                    references: app_user(id)
+              - column:
+                  name: created_at
+                  type: timestamp
+                  remarks: request date of create record
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  remarks: request date of update record
+                  defaultValue: now()
+                  constraints:
+                    nullable: false

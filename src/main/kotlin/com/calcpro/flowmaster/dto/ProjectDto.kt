@@ -1,6 +1,6 @@
 package com.calcpro.flowmaster.dto
 
-import com.calcpro.flowmaster.dao.entity.Engineer
+import com.calcpro.flowmaster.dao.entity.AppUser
 
 data class ProjectRequest(
     val projectName: String,
@@ -11,5 +11,5 @@ data class ProjectRequest(
 class ProjectResponse(
     val projectName: String,
     val projectLocation: String,
-    val engineer: Engineer
+    val engineer: AppUser
 )

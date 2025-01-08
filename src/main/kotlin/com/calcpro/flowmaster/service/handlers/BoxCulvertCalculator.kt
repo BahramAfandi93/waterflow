@@ -2,7 +2,7 @@ package com.calcpro.flowmaster.service.handlers
 
 import com.calcpro.flowmaster.logger.DPLogger
 import com.calcpro.flowmaster.dao.entity.StructureShape.BOX_CULVERT
-import com.calcpro.flowmaster.dao.repository.CulvertRepository
+import com.calcpro.flowmaster.dao.repository.StructureRepository
 import com.calcpro.flowmaster.dto.CulvertRequest
 import com.calcpro.flowmaster.dto.CulvertResponse
 import com.calcpro.flowmaster.mapper.CulvertMapper
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class BoxCulvertCalculator(
-    private val culvertRepository: CulvertRepository,
+    private val structureRepository: StructureRepository,
     private val culvertMapper: CulvertMapper,
     private val calcUtil: CalcUtil
 ) : CulvertHandler {
@@ -30,7 +30,7 @@ class BoxCulvertCalculator(
         var entity = culvertMapper.culvertRequestToCulvertEntity(culvertRequest)
         entity = calcUtil.boxCulvertCalculationSetter(entity)
 
-        val responseEntity = culvertRepository.save(entity)
+        val responseEntity = structureRepository.save(entity)
 
         return culvertMapper.culvertEntityToCulvertResponse(responseEntity)
     }

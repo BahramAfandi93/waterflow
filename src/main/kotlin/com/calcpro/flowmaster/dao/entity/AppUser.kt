@@ -2,18 +2,18 @@ package com.calcpro.flowmaster.dao.entity
 
 import java.time.LocalDate
 import java.time.LocalDateTime
-import javax.persistence.CascadeType
+import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType.IDENTITY
 import javax.persistence.Id
-import javax.persistence.OneToMany
 import javax.persistence.Table
 import org.hibernate.annotations.CreationTimestamp
+import org.hibernate.annotations.UpdateTimestamp
 
 @Entity
-@Table(name = "engineer")
-class Engineer(
+@Table(name = "app_user")
+class AppUser(
     @Id
     @GeneratedValue(strategy = IDENTITY)
     var id: Long? = null,
@@ -27,13 +27,11 @@ class Engineer(
     var phone: String? = null,
     var role: Role? = null,
 
-    @OneToMany(mappedBy = "engineer", cascade = [CascadeType.ALL])
-    val projects: List<Project>? = null,
-
     @CreationTimestamp
-    var createdAt: LocalDateTime? = null,
-//    var isEnabled: Boolean = false,
-//    var credentialsNonExpired: Boolean = false,
-//    var isAccountNonLocked: Boolean = false,
-//    var isAccountNonExpired: Boolean = false,
+    @Column(name = "created_at")
+    val createdAt: LocalDateTime? = null,
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    var updatedAt: LocalDateTime? = null,
 )
