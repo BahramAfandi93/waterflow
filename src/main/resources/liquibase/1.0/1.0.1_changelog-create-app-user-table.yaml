@@ -1,0 +1,57 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create table to store data about structures
+      author: BAHRAM AFANDI
+      changes:
+        - createTable:
+            tableName: app_user
+            remarks: Table to store application users
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: lastname
+                  type: VARCHAR(255)
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  name: birthday
+                  type: DATE
+              - column:
+                  name: position
+                  type: VARCHAR(255)
+              - column:
+                  name: company
+                  type: VARCHAR(255)
+              - column:
+                  name: phone
+                  type: VARCHAR(255)
+              - column:
+                  name: role
+                  type: VARCHAR(255)
+              - column:
+                  name: created_at
+                  type: timestamp
+                  remarks: request date of create record
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  remarks: request date of update record
+                  defaultValue: now()
+                  constraints:
+                    nullable: false

@@ -1,11 +1,11 @@
 databaseChangeLog:
   - changeSet:
-      id: Create table to store data about culverts
+      id: Create table to store data about structures
       author: BAHRAM AFANDI
       changes:
         - createTable:
-            tableName: culvert
-            remarks: Table to store culverts
+            tableName: structure
+            remarks: Table to store structures
             columns:
               - column:
                   name: id
@@ -14,7 +14,6 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     primaryKey: true
-                    primaryKeyName: pk_culvert
               - column:
                   name: project_name
                   type: VARCHAR(255)
@@ -85,91 +84,26 @@ databaseChangeLog:
                   name: required_flow_rate
                   type: DOUBLE
               - column:
-                  name: culvert_post_date
-                  type: DATETIME
-              - column:
                   name: result
                   type: VARCHAR(255)
               - column:
                   name: project_id
                   type: BIGINT
-        - createTable:
-            tableName: project
-            remarks: Table to store projects
-            columns:
-              - column:
-                  name: id
-                  type: BIGINT
-                  autoIncrement: true
+                  remarks: related project id for structure
                   constraints:
-                    nullable: false
-                    primaryKey: true
-                    primaryKeyName: pk_project
-              - column:
-                  name: project_name
-                  type: VARCHAR(255)
-              - column:
-                  name: project_location
-                  type: VARCHAR(255)
-        - createTable:
-            tableName: engineer
-            remarks: Table to store engineer
-            columns:
-              - column:
-                  name: id
-                  type: BIGINT
-                  autoIncrement: true
-                  constraints:
-                    nullable: false
-                    primaryKey: true
-                    primaryKeyName: pk_engineer
-              - column:
-                  name: name
-                  type: VARCHAR(255)
-              - column:
-                  name: lastname
-                  type: VARCHAR(255)
-              - column:
-                  name: email
-                  type: VARCHAR(255)
-              - column:
-                  name: password
-                  type: VARCHAR(255)
-              - column:
-                  name: birthday
-                  type: DATE
-              - column:
-                  name: position
-                  type: VARCHAR(255)
-              - column:
-                  name: company
-                  type: VARCHAR(255)
-              - column:
-                  name: phone
-                  type: VARCHAR(255)
-              - column:
-                  name: role
-                  type: VARCHAR(255)
+                    foreignKeyName: fk_project_id
+                    references: project(id)
               - column:
                   name: created_at
-                  type: DATETIME
-#              - column:
-#                  constraints:
-#                    nullable: false
-#                  name: is_enabled
-#                  type: BOOLEAN
-#              - column:
-#                  constraints:
-#                    nullable: false
-#                  name: credentials_non_expired
-#                  type: BOOLEAN
-#              - column:
-#                  constraints:
-#                    nullable: false
-#                  name: is_account_non_locked
-#                  type: BOOLEAN
-#              - column:
-#                  constraints:
-#                    nullable: false
-#                  name: is_account_non_expired
-#                  type: BOOLEAN
+                  type: timestamp
+                  remarks: request date of create record
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  remarks: request date of update record
+                  defaultValue: now()
+                  constraints:
+                    nullable: false

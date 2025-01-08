@@ -1,19 +1,24 @@
 package com.calcpro.flowmaster.dao.entity
 
 import java.time.LocalDateTime
+import javax.persistence.CascadeType
+import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.EnumType.STRING
 import javax.persistence.Enumerated
+import javax.persistence.FetchType
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType.IDENTITY
 import javax.persistence.Id
 import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
 import javax.persistence.Table
+import org.hibernate.annotations.CreationTimestamp
+import org.hibernate.annotations.UpdateTimestamp
 
 @Entity
-@Table(name = "culvert")
-class Culvert(
+@Table(name = "structure")
+class Structure(
     @Id
     @GeneratedValue(strategy = IDENTITY)
     var id: Long? = null,
@@ -39,10 +44,17 @@ class Culvert(
     var roughness: Double? = null,
     var flowRate: Double? = null,
     var requiredFlowRate: Double? = null,
-    var culvertPostDate: LocalDateTime? = null,
     var result: String? = null,
 
-    @ManyToOne
-    @JoinColumn(name = "project_id")
-    var project: Project? = null,
+    @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+    @JoinColumn(name = "project_id", nullable = false)
+    val project: Project? = null,
+
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    var createdAt: LocalDateTime? = null,
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    var updatedAt: LocalDateTime? = null
 )
