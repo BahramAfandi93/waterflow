@@ -18,8 +18,7 @@ import org.hibernate.annotations.UpdateTimestamp
 @Table(name = "project")
 class Project(
     @Id
-    @GeneratedValue(strategy = IDENTITY)
-    val id: Long? = null,
+    val id: String? = null,
     val projectName: String,
     val projectLocation: String,
 

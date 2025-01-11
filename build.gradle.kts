@@ -1,15 +1,15 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id ("java")
-    id ("groovy")
-    id ("jacoco")
-    id ("org.springframework.boot") version ("2.7.14")
-    id ("io.spring.dependency-management") version ("1.0.11.RELEASE")
-    id ("org.jetbrains.kotlin.jvm") version ("1.6.21")
-    id ("org.jetbrains.kotlin.plugin.spring") version ("1.6.21")
-    id ("org.jetbrains.kotlin.kapt") version ("1.6.21")
-    id ("org.jetbrains.kotlin.plugin.jpa") version ("1.6.21")
+    id("java")
+    id("groovy")
+    id("jacoco")
+    id("org.jetbrains.kotlin.jvm") version ("1.9.10")
+    id("org.springframework.boot") version ("2.7.14")
+    id("org.jetbrains.kotlin.kapt") version ("1.9.10")
+    id("io.spring.dependency-management") version ("1.0.11.RELEASE")
+    id("org.jetbrains.kotlin.plugin.jpa") version ("1.9.10")
+    id("org.jetbrains.kotlin.plugin.spring") version ("1.9.10")
 }
 
 group = "com.calcpro"
@@ -37,12 +37,13 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
-
-    // kafka
-    implementation("org.springframework.kafka:spring-kafka")
+    implementation("io.github.oshai:kotlin-logging-jvm:7.0.3")
 
     // logging
     implementation("net.logstash.logback:logstash-logback-encoder:7.0.1")
+
+    // thymeleaf
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 
     // test
     testImplementation("io.github.benas:random-beans:3.9.0")
@@ -54,24 +55,28 @@ dependencies {
     //    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:3.1.7")
     //    implementation("io.github.openfeign:feign-httpclient:12.3")
     //    implementation("org.apache.httpcomponents.client5:httpclient5:5.2.1")
+    //
+    //    //mail
+    //    implementation ("org.springframework.boot:spring-boot-starter-mail")
 
     // data
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation ("org.hibernate:hibernate-core:5.6.8.Final")
-    runtimeOnly ("org.postgresql:postgresql")
+    implementation("org.hibernate:hibernate-core:5.6.8.Final")
+    runtimeOnly("org.postgresql:postgresql")
 
     implementation("org.liquibase:liquibase-core")
 
     // mapper
-    implementation ("org.mapstruct:mapstruct:1.5.5.Final")
-    kapt ("org.mapstruct:mapstruct-processor:1.5.5.Final")
-//
-//    //mail
-//    implementation ("org.springframework.boot:spring-boot-starter-mail")
+    implementation("org.mapstruct:mapstruct:1.5.5.Final")
+    kapt("org.mapstruct:mapstruct-processor:1.5.5.Final")
 
-//    // security
-//    implementation ("org.springframework.boot:spring-boot-starter-security")
-//    testImplementation ("org.springframework.security:spring-security-test")
+    // security
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+    testImplementation("org.springframework.security:spring-security-test")
+
+    // thymeleaf
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 }
 
 tasks.withType<KotlinCompile> {
