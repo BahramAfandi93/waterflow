@@ -72,6 +72,9 @@ dependencies {
 //    // security
 //    implementation ("org.springframework.boot:spring-boot-starter-security")
 //    testImplementation ("org.springframework.security:spring-security-test")
+
+    // oauth2
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
 }
 
 tasks.withType<KotlinCompile> {
