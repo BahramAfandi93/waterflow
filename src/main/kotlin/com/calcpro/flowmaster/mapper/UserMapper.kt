@@ -32,15 +32,15 @@ class UserMapper {
         role = userRequestDto.role ?: ENGINEER
     )
 
-    fun userToUserResponse(engineer: AppUser) = UserResponse(
-        name = engineer.name,
-        lastname = engineer.lastname,
-        email = engineer.email,
-        password = engineer.password,
-        birthday = engineer.birthday,
-        position = engineer.position,
-        company = engineer.company,
-        phone = engineer.phone,
-        role = engineer.role ?: ENGINEER
+    fun userToUserResponse(user: AppUser) = UserResponse(
+        name = user.name,
+        lastname = user.lastname,
+        email = user.email,
+        password = user.password,
+        birthday = user.birthday,
+        position = user.position,
+        company = user.company,
+        phone = user.phone,
+        role = user.role ?: ENGINEER
     )
 }

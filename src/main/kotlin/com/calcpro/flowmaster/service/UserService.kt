@@ -1,23 +1,19 @@
 package com.calcpro.flowmaster.service
 
-import com.calcpro.flowmaster.dao.repository.UserRepository
-import com.calcpro.flowmaster.dto.UserRequestDto
-import com.calcpro.flowmaster.dto.UserResponse
+import com.calcpro.flowmaster.dao.entity.AppUser
+import com.calcpro.flowmaster.dao.repository.AppUserRepository
 import com.calcpro.flowmaster.mapper.UserMapper
+import org.springframework.security.oauth2.core.user.OAuth2User
 import org.springframework.stereotype.Service
 
 @Service
 class UserService(
-    private val userRepository: UserRepository,
+    private val appUserRepository: AppUserRepository,
     private val userMapper: UserMapper
 ) {
-    fun getEngineerById(id: Long): UserResponse {
-        val engineer = userRepository.findById(id)
-        return userMapper.userToUserResponse(engineer.get())
-    }
 
-    fun addNewEngineer(engineerRequest: UserRequestDto) {
-        val engineer = userMapper.userRequestDtoToUser(engineerRequest)
-        userRepository.save(engineer)
-    }
+    fun createUser(oAuth2User: OAuth2User) = AppUser(
+        name = oAuth2User.getAttribute("name"),
+        email = oAuth2User.getAttribute("email"),
+    )
 }
