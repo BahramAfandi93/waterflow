@@ -1,3 +1,5 @@
+package com.calcpro.flowmaster.security
+
 import com.calcpro.flowmaster.service.CustomOAuth2AppUserService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

@@ -6,10 +6,10 @@ plugins {
     id ("jacoco")
     id ("org.springframework.boot") version ("2.7.14")
     id ("io.spring.dependency-management") version ("1.0.11.RELEASE")
-    id ("org.jetbrains.kotlin.jvm") version ("1.6.21")
-    id ("org.jetbrains.kotlin.plugin.spring") version ("1.6.21")
-    id ("org.jetbrains.kotlin.kapt") version ("1.6.21")
-    id ("org.jetbrains.kotlin.plugin.jpa") version ("1.6.21")
+    id ("org.jetbrains.kotlin.jvm") version ("1.9.10")
+    id ("org.jetbrains.kotlin.plugin.spring") version ("1.9.10")
+    id ("org.jetbrains.kotlin.kapt") version ("1.9.10")
+    id ("org.jetbrains.kotlin.plugin.jpa") version ("1.9.10")
 }
 
 group = "com.calcpro"
@@ -75,6 +75,10 @@ dependencies {
 
     // oauth2
     implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+
+    // thymeleaf
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+
 }
 
 tasks.withType<KotlinCompile> {
