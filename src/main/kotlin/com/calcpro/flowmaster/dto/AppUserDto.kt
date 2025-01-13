@@ -4,11 +4,11 @@ import com.calcpro.flowmaster.dao.entity.Role
 import java.time.LocalDate
 
 data class UserRequestDto(
-    val name: String,
-    val lastname: String,
-    val email: String,
-    val password: String,
-    val birthday: LocalDate,
+    val name: String?,
+    val lastname: String?,
+    val email: String?,
+    val password: String?,
+    val birthday: LocalDate?,
     val position: String? = null,
     val company: String? = null,
     val phone: String? = null,
@@ -16,11 +16,11 @@ data class UserRequestDto(
 )
 
 data class UserResponse(
-    val name: String,
-    val lastname: String,
-    val email: String,
-    val password: String,
-    val birthday: LocalDate,
+    val name: String?,
+    val lastname: String?,
+    val email: String?,
+    val password: String?,
+    val birthday: LocalDate?,
     val position: String? = null,
     val company: String? = null,
     val phone: String? = null,
