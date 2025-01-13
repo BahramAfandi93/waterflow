@@ -1,17 +1,25 @@
 server:
   port: 8080
+  servlet:
+    session:
+      timeout: 1m # 1 minutes
 
 logging:
   level:
     root: INFO
-    com.calcpro: DEBUG
+    com.calcpro.flowmaster: INFO
+    org.springframework.security: TRACE
 
 spring:
   application:
     name: flow-master
+  thymeleaf:
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/flow-master_db_v1
+    url: jdbc:postgresql://localhost:5432/flow-master
     username: user
     password: 123456
   jpa:
@@ -25,17 +33,6 @@ spring:
       client:
         registration:
           google:
-            client-id: 257930822850-c29ieaeaa469efnekdqt72hhlcdo9s2e.apps.googleusercontent.com
-            client-secret: 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
-            redirect-uri: "http://localhost:8080/user"
-#            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-            scope:
-              - openid
-              - profile
-              - email
-        provider:
-          google:
-            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
-            token-uri: https://www.googleapis.com/oauth2/v4/token
-            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
-            user-name-attribute: sub
+            client-id: ${CLIENT_ID}
+            client-secret: ${CLIENT_SECRET}
+            scope: profile, email

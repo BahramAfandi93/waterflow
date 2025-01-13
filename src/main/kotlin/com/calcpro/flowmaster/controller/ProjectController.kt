@@ -1,7 +1,6 @@
 package com.calcpro.flowmaster.controller
 
 import com.calcpro.flowmaster.dto.ProjectRequest
-import com.calcpro.flowmaster.logger.DPLogger
 import com.calcpro.flowmaster.service.ProjectService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -16,11 +15,6 @@ import org.springframework.web.bind.annotation.RestController
 class ProjectController(
     private val projectService: ProjectService
 ) {
-
-    companion object {
-        private val log = DPLogger.getLogger(this::class.java)
-    }
-
     @PostMapping("/add-new-project")
     fun saveNewProject(
         @RequestParam userId: Long,
